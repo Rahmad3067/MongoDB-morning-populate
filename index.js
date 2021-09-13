@@ -40,6 +40,15 @@ app.get("/address", async (req, res) => {
 })
 
 
+app.get("/student/:id", async ( req,res ) => {
+    const address = await Student.findById(req.params.id).populate('address');
+    res.json({
+        message: "The only Student",
+        data: address,
+    })
+})
+
+
 
 
 app.listen(process.env.PORT, () => {
